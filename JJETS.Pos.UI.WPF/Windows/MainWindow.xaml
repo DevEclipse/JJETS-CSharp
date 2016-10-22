@@ -1,0 +1,34 @@
+﻿<mah:MetroWindow x:Class="JJETS.Pos.UI.WPF.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:icons="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:views="clr-namespace:JJETS.Pos.UI.WPF.Views"
+        mc:Ignorable="d" ShowMaxRestoreButton="False" AllowsTransparency="True" ShowIconOnTitleBar="True" IconBitmapScalingMode="HighQuality"
+        ResizeMode="CanResizeWithGrip" Icon="C:\Users\Juzel Bernardo\Desktop\jjetslogo.png"
+        WindowState="Maximized" WindowTransitionsEnabled="True" d:DesignHeight="1024" d:DesignWidth="1280">
+
+    <mah:MetroWindow.RightWindowCommands>
+        <mah:WindowCommands>
+            <Button Click="ButtonBase_OnClick" > My Account </Button>
+        </mah:WindowCommands>
+    </mah:MetroWindow.RightWindowCommands>
+    <mah:MetroWindow.Flyouts>
+        <mah:FlyoutsControl>
+            <mah:Flyout Name="Profile" Header="User Profile" IsPinned="True" Width="Auto" Height="Auto">
+                <views:User/>
+            </mah:Flyout>
+            <mah:Flyout Name="Store" Header="Store" IsPinned="True" Position="Right" Width="Auto" Height="Auto">
+                <views:Store/>
+            </mah:Flyout>
+            <mah:Flyout Name="Stores" Header="Store" IsPinned="True" Position="Right" Width="Auto" Height="Auto">
+                <views:Stores/>
+            </mah:Flyout>
+        </mah:FlyoutsControl>
+    </mah:MetroWindow.Flyouts>
+    <ContentControl Name="MainContentControl">
+        <views:Credentials Margin="300"/>
+    </ContentControl>
+</mah:MetroWindow>
