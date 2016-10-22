@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using JJETS.Pos.UI.WPF.Windows;
+using MahApps.Metro.Controls;
 
 namespace JJETS.Pos.UI.WPF.Views
 {
@@ -23,6 +25,17 @@ namespace JJETS.Pos.UI.WPF.Views
         public Items()
         {
             InitializeComponent();
+        }
+
+        private void ItemTileClick(object sender, RoutedEventArgs e)
+        {
+            var tempItem = (JJETS.Pos.Models.Item) (((Tile) sender).DataContext);
+
+            var itemControl = (ItemControl) MainWindow.Instance.ItemControl.Content;
+
+            itemControl.StackItemPanel.DataContext = tempItem;
+
+            MainWindow.Instance.ItemControl.IsOpen = true;
         }
     }
 }

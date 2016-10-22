@@ -36,12 +36,12 @@ namespace JJETS.Pos.UI.WPF.Views
                 case "Stores":
                     MainWindow.Instance.Store.IsOpen = true;
                     break;
+                case "Items":
+                    var temp = (Items)MainWindow.Instance.Items.Content;
+                     temp.ItemsListView.ItemsSource = App.Context.Items.Local;
+                    MainWindow.Instance.Items.IsOpen = true;
+                    break;
             }
-        }
-
-        private void FlipView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

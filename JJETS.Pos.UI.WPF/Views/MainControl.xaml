@@ -40,7 +40,7 @@
                         <Setter Property="VerticalTitleAlignment" Value="Top"/>
                     </Style>
                 </StackPanel.Resources>
-                <mah:Tile Title="Items"/>
+                <mah:Tile Title="Items" Click="Tile_Click"/>
                 <mah:Tile Title="Stores" Click="Tile_Click"/>
                 <mah:Tile Title="Categories"/>
                 <mah:Tile Title="Suppliers"/>
@@ -48,7 +48,9 @@
                 <mah:Tile Title="Notifications"/>
             </StackPanel>
         </ScrollViewer>
-        <mah:FlipView UpTransition="LeftReplace"  MouseHoverBorderEnabled="False" CircularNavigation="True" Grid.Row="1" Grid.ColumnSpan="2" Height="Auto" Width="Auto" IsBannerEnabled="False" SelectionChanged="FlipView_SelectionChanged">
+  
+        
+        <mah:FlipView UpTransition="LeftReplace"  MouseHoverBorderEnabled="False" CircularNavigation="True" Grid.Row="1" Grid.ColumnSpan="2" Height="Auto" Width="Auto" IsBannerEnabled="False">
             <mah:FlipView.Items>
                 <mah:Tile Title="Top Item">
                     <StackPanel>

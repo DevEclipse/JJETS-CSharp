@@ -28,7 +28,7 @@ namespace JJETS.Pos.Models
 
         public int? Retries { get; set; } = 3;
 
-        public DateTime? PenaltyTime { get; set; } = DateTime.Now;
+        public DateTime PenaltyTime { get; set; } = DateTime.Now;
 
         public StatusUser? Status { get; set; } = StatusUser.New;
 

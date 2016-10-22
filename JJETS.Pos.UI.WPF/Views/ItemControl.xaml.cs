@@ -12,30 +12,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using JJETS.Pos.UI.WPF.Windows;
-using MahApps.Metro.Controls;
 
 namespace JJETS.Pos.UI.WPF.Views
 {
     /// <summary>
-    /// Interaction logic for ManagerControl.xaml
+    /// Interaction logic for ItemControl.xaml
     /// </summary>
-    public partial class ManagerControl : UserControl
+    public partial class ItemControl : UserControl
     {
-        public ManagerControl()
+
+       
+        public ItemControl()
         {
             InitializeComponent();
         }
-
-        private void Tile_Click(object sender, RoutedEventArgs e)   
-        {
-            var tile = (Tile)e.Source;
-
-            switch (tile.Title)
-            {
-
-            }
-        }
-
+        
     }
 }

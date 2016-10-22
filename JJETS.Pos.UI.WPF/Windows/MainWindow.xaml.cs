@@ -30,6 +30,7 @@ namespace JJETS.Pos.UI.WPF.Windows
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)

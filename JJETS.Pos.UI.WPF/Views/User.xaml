@@ -7,7 +7,7 @@
              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:icons="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d" 
-             Width="500" Height="800">
+             Width="500" Height="600">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
@@ -18,14 +18,15 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <StackPanel>
-            <local:CircleImage CircleSourceImage="http://www.thehindu.com/multimedia/dynamic/02540/bean_2540132g.jpg"></local:CircleImage>
-            <Label Content="Manager"  FontSize="15" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <local:CircleImage Width="150" Height="150" CircleSourceImage="http://www.thehindu.com/multimedia/dynamic/02540/bean_2540132g.jpg"></local:CircleImage>
+            <Label Content="Manager" FontSize="15" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </StackPanel>
         <StackPanel Grid.Column="1" Margin="15">
             <Label Content="Mr. Bean" FontSize="50" FontWeight="DemiBold" VerticalAlignment="Top" HorizontalAlignment="Center"/>
 
             <Label Content="mrbean@bean.com" FontSize="25" FontWeight="DemiBold" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
             <Label Content="Balance: $100" FontSize="15" FontWeight="DemiBold" HorizontalAlignment="Center"/>
+            <Button Grid.ColumnSpan="2">Edit</Button>
         </StackPanel>
         <local:ManagerControl Grid.ColumnSpan="2" Grid.Row="1"></local:ManagerControl>
     </Grid>

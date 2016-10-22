@@ -7,9 +7,9 @@
         xmlns:icons="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:views="clr-namespace:JJETS.Pos.UI.WPF.Views"
         mc:Ignorable="d" ShowMaxRestoreButton="False" AllowsTransparency="True" ShowIconOnTitleBar="True" IconBitmapScalingMode="HighQuality"
-        ResizeMode="CanResizeWithGrip" Icon="C:\Users\Juzel Bernardo\Desktop\jjetslogo.png"
+        ResizeMode="CanResizeWithGrip" Icon="C:\Users\Juzel Bernardo\Desktop\jjetslogo.png" Name="Main"
         WindowState="Maximized" WindowTransitionsEnabled="True" d:DesignHeight="1024" d:DesignWidth="1280">
-
+       
     <mah:MetroWindow.RightWindowCommands>
         <mah:WindowCommands>
             <Button Click="ButtonBase_OnClick" > My Account </Button>
@@ -23,8 +23,11 @@
             <mah:Flyout Name="Store" Header="Store" IsPinned="True" Position="Right" Width="Auto" Height="Auto">
                 <views:Store/>
             </mah:Flyout>
-            <mah:Flyout Name="Stores" Header="Store" IsPinned="True" Position="Right" Width="Auto" Height="Auto">
-                <views:Stores/>
+            <mah:Flyout Name="Items" Header="Items" IsPinned="True" Position="Right" Width="{Binding ElementName=Main, Path=ActualWidth}" Height="{Binding ElementName=Main, Path=ActualHeight}">
+                <views:Items/>
+            </mah:Flyout>
+            <mah:Flyout Name="ItemControl" Header="Item" IsPinned="True" Position="Right" Width="Auto" Height="Auto">
+                <views:ItemControl/>
             </mah:Flyout>
         </mah:FlyoutsControl>
     </mah:MetroWindow.Flyouts>

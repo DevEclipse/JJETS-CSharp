@@ -4,33 +4,34 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:JJETS.Pos.UI.WPF.Views"
-             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:models="clr-namespace:JJETS.Pos.Models;assembly=JJETS.Pos.Models"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition />
-        </Grid.RowDefinitions>
+        </Grid.RowDefinitions >
         <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" >
-            <TextBox controls:TextBoxHelper.Watermark="Search" controls:TextBoxHelper.ClearTextButton="True" Margin="20" Width="150" Padding="5" FontSize="15"/>
-            <ComboBox controls:TextBoxHelper.Watermark="By" Margin="0,20,20,20" Width="150" Padding="5" FontSize="15"/>
+            <TextBox mah:TextBoxHelper.Watermark="Search" mah:TextBoxHelper.ClearTextButton="True" Margin="20" Width="150" Padding="5" FontSize="15"/>
+            <ComboBox mah:TextBoxHelper.Watermark="By" Margin="0,20,20,20" Width="150" Padding="5" FontSize="15"/>
         </StackPanel>
-        <ListView Grid.Row="1">
-            <ListView>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <controls:Tile Width="100" Height="100" Title="Auto">
-                            <controls:Tile.Background>
-                                <ImageBrush ImageSource="http://placehold.it/100x100"/>
-                            </controls:Tile.Background>
-                            <Label VerticalAlignment="Top" HorizontalAlignment="Right" Content="Price"/>
-                        </controls:Tile>
-
-
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+        <ListView Name="ItemsListView"  Grid.Row="1" >
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate DataType="models:Item">
+                    <mah:Tile Width="100" Height="100" Title="{Binding Name}" Count="{Binding CostPrice}" Click="ItemTileClick">
+                        <mah:Tile.Background>
+                            <ImageBrush ImageSource="{Binding Image}"/>
+                        </mah:Tile.Background>
+                    </mah:Tile>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
     </Grid>
 </UserControl>

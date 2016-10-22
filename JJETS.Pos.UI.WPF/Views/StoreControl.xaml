@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="JJETS.Pos.UI.WPF.Views.StoreControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JJETS.Pos.UI.WPF.Views"
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:models="clr-namespace:JJETS;assembly=JJETS.Pos.Models"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="300">
+
+    <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
+        <StackPanel>
+            <local:CircleImage Width="150" Height="150" Margin="20" CircleSourceImage="http://placehold.it/250x250"></local:CircleImage>
+            <ComboBox x:Name="CategoriesBox" Padding="10" Margin="10" mah:TextBoxHelper.Watermark="Select Location" Width="250"/>
+            <TextBox x:Name="NameText" Padding="10"  Margin="10" mah:TextBoxHelper.Watermark="Enter Name" Width="250" Text="{Binding Name}"/>
+            <mah:NumericUpDown x:Name="CostPriceText" Margin="10" mah:TextBoxHelper.Watermark="Enter Tax Rate" Width="250" Value="{Binding TaxRate}" />
+            <mah:NumericUpDown x:Name="RetailPriceText" Padding="10"  Margin="10" mah:TextBoxHelper.Watermark="Enter Discount Rate" Width="250" Value="{Binding DiscountRate}"/>
+            <Label HorizontalAlignment="Center"> Description: </Label>
+            <RichTextBox x:Name="DescriptionText" Padding="10"  Margin="10" mah:TextBoxHelper.Watermark="Enter Cost Price" Height="150"  Width="250"/>
+            <Button> Save </Button>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

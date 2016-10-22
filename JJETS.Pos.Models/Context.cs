@@ -14,7 +14,7 @@ namespace JJETS.Pos.Models
     public partial class Context : DbContext
     {
 
-        public Context() : base("name=Context")
+        public Context() : base()
         {
           //  Database.SetInitializer(new MigrateDatabaseToLatestVersion<Context, Configuration>("name=Context"));
             Database.CreateIfNotExists();
