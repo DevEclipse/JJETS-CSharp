@@ -1,3 +1,5 @@
+using MySql.Data.Entity;
+
 namespace JJETS.Pos.Models.Migrations
 {
     using System;
@@ -9,7 +11,8 @@ namespace JJETS.Pos.Models.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
+            SetSqlGenerator("MySql.Data.MySqlClient",new MySqlMigrationSqlGenerator());
         }
 
         protected override void Seed(JJETS.Pos.Models.Context context)

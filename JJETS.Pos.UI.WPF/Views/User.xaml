@@ -11,23 +11,24 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
-            <ColumnDefinition />
+            <ColumnDefinition Width="37*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition />
         </Grid.RowDefinitions>
-        <StackPanel>
-            <local:CircleImage Width="150" Height="150" CircleSourceImage="http://www.thehindu.com/multimedia/dynamic/02540/bean_2540132g.jpg"></local:CircleImage>
-            <Label Content="Manager" FontSize="15" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        </StackPanel>
-        <StackPanel Grid.Column="1" Margin="15">
-            <Label Content="Mr. Bean" FontSize="50" FontWeight="DemiBold" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <local:Base Grid.RowSpan="2"></local:Base>
+        <GroupBox Grid.Column="1" Header="User Info">
+            <GroupItem>
+                <StackPanel>
+                    <Label >Balance</Label>
+                    <Label >Contact No</Label>
+                </StackPanel>
+            </GroupItem>
+        </GroupBox>
+        <ContentControl Grid.Column="1" Grid.Row="1" x:Name="UserControlContent">
+            <local:EmployeeControl></local:EmployeeControl>
+        </ContentControl>
 
-            <Label Content="mrbean@bean.com" FontSize="25" FontWeight="DemiBold" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
-            <Label Content="Balance: $100" FontSize="15" FontWeight="DemiBold" HorizontalAlignment="Center"/>
-            <Button Grid.ColumnSpan="2">Edit</Button>
-        </StackPanel>
-        <local:ManagerControl Grid.ColumnSpan="2" Grid.Row="1"></local:ManagerControl>
     </Grid>
 </UserControl>

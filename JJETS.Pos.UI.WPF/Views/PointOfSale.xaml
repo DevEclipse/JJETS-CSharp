@@ -22,21 +22,12 @@
 
             <Label Margin="20" Width="Auto" Padding="10" FontSize="15">Employee</Label>
             <Label Margin="20" Width="Auto" Padding="10" FontSize="15">Customer</Label>
-            <Button Width="150"> Pay </Button>
-            <Button Width="100"> Cancel </Button>
-        </StackPanel>
-        <StackPanel Grid.Column="1" Orientation="Horizontal">
-            <Label Margin="20" Width="Auto" Padding="10" FontSize="15">Store</Label>
-            <Label Margin="20" Width="Auto" Padding="10" FontSize="15">Transaction</Label>
+            <Button Width="150">Pay</Button>
+            <Button Width="100">Cancel</Button>
         </StackPanel>
 
         <local:Stocks Grid.Column="1" Grid.RowSpan="3"></local:Stocks>
-        <mah:Tile Grid.Row="1" Grid.Column="2" Width="100" Height="100" Title="Auto">
-            <mah:Tile.Background>
-                <ImageBrush ImageSource="http://placehold.it/100x100"/>
-            </mah:Tile.Background>
-            <Label VerticalAlignment="Top" HorizontalAlignment="Right" Content="Price"/>
-        </mah:Tile>
+
         <ListView Grid.Row="1" Width="Auto">
             <ListView.View>
                 <GridView>

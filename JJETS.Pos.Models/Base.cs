@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,11 +25,14 @@ namespace JJETS.Pos.Models
 
         public byte[] Image { get; set; }
 
-        public string CreatedBy { get; set; }
+        public int? CreatedById { get; set; }
+
+        public User CreatedBy { get; set; }
 
         public string Description { get; set; }
 
-        public User Subscriber { get; set; }
+        public virtual ObservableCollection<User> Subscribers { get; set; } = new ObservableCollection<User>();
+
     }
 
         #region Status Enums
@@ -56,14 +61,6 @@ namespace JJETS.Pos.Models
             New,
             Open,
             Closed,
-        }
-
-        public enum Roles
-        {
-            Admin,
-            Manager,
-            Employee,
-            Customer,
         }
         #endregion
 }

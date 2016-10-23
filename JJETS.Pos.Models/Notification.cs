@@ -6,12 +6,10 @@ namespace JJETS.Pos.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Customers")]
-    public partial class Customer : User
+    public partial class Notification : Base
     {
-        public double? PointsEarned { get; set; } = 0;
+        public int? UserId { get; set; }
 
-
-        public virtual ObservableCollection<Transaction> Transactions { get; set; } = new ObservableCollection<Transaction>();
+        public virtual User User { get; set; }
     }
 }

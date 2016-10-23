@@ -1,3 +1,5 @@
+using System.Collections.ObjectModel;
+
 namespace JJETS.Pos.Models
 {
     using System;
@@ -36,5 +38,7 @@ namespace JJETS.Pos.Models
         public string VerificationCode { get; set; }
         
         public int? ContactNumber { get; set; } 
+
+        public ObservableCollection<Notification> Notifications = new ObservableCollection<Notification>();
     }
 }

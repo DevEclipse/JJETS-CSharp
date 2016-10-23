@@ -7,18 +7,24 @@
              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
              DataContext="{Binding RelativeSource={RelativeSource Self}}"
              mc:Ignorable="d" 
-             d:DesignHeight="800" d:DesignWidth="300">
+             d:DesignHeight="900" d:DesignWidth="300">
     <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
-        <StackPanel x:Name="StackItemPanel" >
-            <local:CircleImage Width="150" Height="150" Margin="20" CircleSourceImage="http://placehold.it/250x250"></local:CircleImage>
-            <ComboBox x:Name="CategoriesBox" Padding="10" Margin="10" mah:TextBoxHelper.Watermark="Select Category" Width="250" SelectedValue="{Binding Category}"/>
-            <ComboBox x:Name="SuppliersBox" Padding="10"  Margin="10" mah:TextBoxHelper.Watermark="Select Supplier" Width="250" SelectedValue="{Binding Supplier}"/>
-            <TextBox x:Name="NameText" Padding="10"  Margin="10" mah:TextBoxHelper.Watermark="Enter Name" Width="250" Text="{Binding Name}"/>
-            <mah:NumericUpDown  x:Name="CostPriceText" Padding="10"  Margin="10" mah:TextBoxHelper.Watermark="Enter Cost Price" Width="250" Value="{Binding CostPrice}"/>
-            <mah:NumericUpDown x:Name="RetailPriceText" Padding="10"  Margin="10" mah:TextBoxHelper.Watermark="Enter Retail Price" Width="250" Value="{Binding RetailPrice}"/>
-            <Label HorizontalAlignment="Center"> Description: </Label>
-            <TextBox x:Name="DescriptionText" Padding="10"  Margin="10" mah:TextBoxHelper.Watermark="Enter Name" Width="250" Height="250" Text="{Binding Description}" TextWrapping="WrapWithOverflow"/>
-            <Button> Save </Button>
+        <StackPanel x:Name="StackItemPanel" DataContext="{Binding ItemReference}" >
+            <local:BaseControl/>
+
+            <GroupBox Header="Additional Info">
+                <StackPanel>
+                <ComboBox x:Name="CategoriesBox" Padding="10" Margin="10" mah:TextBoxHelper.Watermark="Select Category" Width="250" SelectedValue="{Binding Category}"/>
+                <ComboBox x:Name="SuppliersBox" Padding="10"  Margin="10" mah:TextBoxHelper.Watermark="Select Supplier" Width="250" SelectedValue="{Binding Supplier}"/>
+
+                <mah:NumericUpDown  x:Name="CostPriceText" Padding="10"  Margin="10" mah:TextBoxHelper.Watermark="Enter Cost Price" Width="250" Value="{Binding CostPrice}"/>
+                    <mah:NumericUpDown x:Name="RetailPriceText" Padding="10"  Margin="10" mah:TextBoxHelper.Watermark="Enter Retail Price" Width="250" Value="{Binding RetailPrice}"/>
+
+                <Button Padding="10" Click="AddItem">Add</Button>
+                <Button Padding="10" Click="UpdateItem">Save</Button>
+                <Button Padding="10" Click="DeleteItem">Delete</Button>
+                </StackPanel>
+            </GroupBox>
         </StackPanel>
     </ScrollViewer>
 </UserControl>

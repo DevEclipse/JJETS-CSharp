@@ -4,7 +4,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:JJETS.Pos.UI.WPF.Views"
-             
              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:icons="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d" 
@@ -18,8 +17,8 @@
         <DockPanel LastChildFill="True">
 
             <TextBox DockPanel.Dock="Right"  VerticalAlignment="Center"  Width="250" mah:TextBoxHelper.Watermark="Search" mah:TextBoxHelper.ClearTextButton="True" Padding="20" />
-            <ComboBox DockPanel.Dock="Right" VerticalAlignment="Center"  mah:TextBoxHelper.Watermark="Locations" Padding="20" />
-            <ComboBox DockPanel.Dock="Right" VerticalAlignment="Center" mah:TextBoxHelper.Watermark="Managers" Padding="20" />
+            <ComboBox x:Name="LocationsComboBox" DockPanel.Dock="Right" VerticalAlignment="Center"  mah:TextBoxHelper.Watermark="Locations" Padding="20" />
+            <ComboBox x:Name="ManagersComboBox" DockPanel.Dock="Right" VerticalAlignment="Center" mah:TextBoxHelper.Watermark="Managers" Padding="20" />
             <Label Padding="20" FontSize="15" FontWeight="DemiBold">Stores:</Label>
         </DockPanel>
         <ListView Grid.Row="1">

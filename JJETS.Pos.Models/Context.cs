@@ -9,14 +9,14 @@ namespace JJETS.Pos.Models
     using System.Linq;
     using MySql.Data.MySqlClient;
     using System.Data.Entity.ModelConfiguration.Conventions;
-   // using Migrations;
+    using Migrations;
 
     public partial class Context : DbContext
     {
 
-        public Context() : base()
+        public Context() : base("name=Offline")
         {
-          //  Database.SetInitializer(new MigrateDatabaseToLatestVersion<Context, Configuration>("name=Context"));
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<Context, Configuration>("name=Offline"));
             Database.CreateIfNotExists();
         }
 
@@ -38,7 +38,7 @@ namespace JJETS.Pos.Models
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Manager> Managers { get; set; }
-
+        public virtual DbSet<Notification> Notifications { get; set; }
 
 
     }

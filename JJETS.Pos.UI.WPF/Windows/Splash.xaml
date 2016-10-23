@@ -26,8 +26,8 @@
         <TextBlock VerticalAlignment="Center" HorizontalAlignment="Stretch" TextAlignment="Center" Margin="0,200,0,0" FontSize="20" FontWeight="Medium"> All Rights Reserved 2016</TextBlock>
         <Grid VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
 
-            <mah:MetroProgressBar Name="LoadingBar"  Value="0" Height="30"/>
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" x:Name="LoadLabel" Background="Transparent"> Loading...</TextBlock>
+            <mah:MetroProgressBar Name="LoadingBar" IsIndeterminate="True" Height="100"/>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="SemiBold" x:Name="LoadLabel" Background="Transparent"> Loading...</TextBlock>
         </Grid>
 
     </Grid>

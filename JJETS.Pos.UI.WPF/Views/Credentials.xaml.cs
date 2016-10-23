@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using JJETS.Pos.Logic;
+using JJETS.Pos.Models;
 using JJETS.Pos.UI.WPF.Windows;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
@@ -28,56 +30,64 @@ namespace JJETS.Pos.UI.WPF.Views
             InitializeComponent();
         }
 
-        private void Tile_Click(object sender, RoutedEventArgs e)
+        private async void Tile_Click(object sender, RoutedEventArgs e)
         {
             var tile = (Tile) e.Source;
 
-            var result =  MainWindow.Instance.ShowModalMessageExternal("Credentials", $"You Selected {tile.Title} as a User Role",
-                MessageDialogStyle.AffirmativeAndNegative,
-                new MetroDialogSettings
-                {
-                    AffirmativeButtonText = "Login",
-                    NegativeButtonText = "Register",
-                    AnimateShow = true
-                }
-            );
+            var metroDialogSettings = new MetroDialogSettings
+            {
+                AffirmativeButtonText = "Login",
+                FirstAuxiliaryButtonText = "Register",
+                AnimateShow = true
+            };
+            var result = await App.Window.ShowMessageAsync("Credentials", $"You Selected {tile.Title} as a User Role ",
+                MessageDialogStyle.AffirmativeAndNegativeAndSingleAuxiliary, metroDialogSettings);
 
             var dialogSettings = new LoginDialogSettings
             {
                 UsernameWatermark = "Email",
                 PasswordWatermark = "Password",
-                EnablePasswordPreview = true
+                EnablePasswordPreview = true,
+                FirstAuxiliaryButtonText = "Reset Password",
+               
             };
 
-            if (result == MessageDialogResult.Affirmative)
+            switch (result)
             {
-                var loginResult = MainWindow.Instance.ShowModalLoginExternal("Login", "Enter your username and password",
-                    dialogSettings);
+                case MessageDialogResult.Affirmative:
+                    var loginResult = await App.Window.ShowLoginAsync("Login", "Enter your username and password",
+                        dialogSettings);
 
-                var realResult = loginResult?.Username == "admin" && loginResult?.Password == "admin";
+                    if (loginResult == null) return;
 
-                MainWindow.Instance.ShowMessageAsync("Hello", realResult ? "Login Success" : "Login Failed");
+                    var loginResultString = POS.LoginCheck(loginResult.Username, loginResult.Password,tile.Title);
 
-                if (realResult)
-                {        
-                    var tempMain = new MainControl();
-                    MainWindow.Instance.MainContentControl.Margin = new Thickness(100);
-                    MainWindow.Instance.MainContentControl.Content = tempMain;
-                }
+                    if(loginResultString == "Login Successful" || loginResultString == "Welcome Admin") { 
 
+                        App.Window.MainContentControl.Content = new MainControl { Margin = new Thickness(100)};
+                    }
+                    await  App.Window.ShowMessageAsync("Login", loginResultString);
+                    break;
 
-            }
-            else
-            {
-                var nameResult = MainWindow.Instance.ShowModalInputExternal($"Role : {tile.Title}","Set your name for your role");
+                case MessageDialogResult.FirstAuxiliary:
+                    var nameResult = App.Window.ShowModalInputExternal($"Role : {tile.Title}","Set your name for your role");
 
-                if (nameResult == "") return;
+                    if (nameResult == null)
+                    {
+                        await  App.Window.ShowMessageAsync("Register", "You must enter a name");
+                    }
+                    else
+                    {
+                        dialogSettings.AffirmativeButtonText = "Register";
 
-                var registerResult = MainWindow.Instance.ShowModalLoginExternal("Register", $"{nameResult} enter your credentials for security", dialogSettings);
+                        var registerResult = await App.Window.ShowLoginAsync("Register",
+                            $"{tile.Title}: {nameResult} enter your credentials for security", dialogSettings);
 
-                var realResult = registerResult?.Username != "admin";
+                        await   App.Window.ShowMessageAsync("Register",
+                            POS.RegisterCheck(nameResult, registerResult?.Username, registerResult?.Password, tile.Title));
 
-                MainWindow.Instance.ShowMessageAsync("Hello", realResult ? "Register Success" : "Register Failed");
+                    }
+                    break;
             }
         }
     }

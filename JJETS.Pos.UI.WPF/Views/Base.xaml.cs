@@ -12,29 +12,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using JJETS.Pos.UI.WPF.Windows;
-using MahApps.Metro.Controls;
 
 namespace JJETS.Pos.UI.WPF.Views
 {
     /// <summary>
-    /// Interaction logic for Items.xaml
+    /// Interaction logic for Base.xaml
     /// </summary>
-    public partial class Items : UserControl
+    public partial class Base : UserControl
     {
-        public Items()
+        public Models.Base BaseModel { get; set; }
+        public Base()
         {
             InitializeComponent();
-        }
-
-        private void ItemTileClick(object sender, RoutedEventArgs e)
-        {
-            App.Window.ItemControlFlyout.ItemReference = (Models.Item)(((Tile)sender).DataContext);
-        }
-
-        private void AddItemClick(object sender, RoutedEventArgs e)
-        {
-            App.Window.ItemControl.IsOpen = true;
         }
     }
 }

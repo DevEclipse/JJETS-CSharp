@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using JJETS.Pos.Models;
+using JJETS.Pos.UI.WPF.Windows;
 
 namespace JJETS.Pos.UI.WPF
 {
@@ -15,7 +16,9 @@ namespace JJETS.Pos.UI.WPF
     /// </summary>
     public partial class App : Application
     {
-        public static Context Context;
+        public static Context Context { get; set; }
+        public static MainWindow Window { get; set; }
+        public static User User { get; set; }
     }
 
     public class PasswordBoxMonitor : DependencyObject

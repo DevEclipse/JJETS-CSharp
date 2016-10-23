@@ -5,29 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:icons="http://metro.mahapps.com/winfx/xaml/iconpacks"
-        xmlns:views="clr-namespace:JJETS.Pos.UI.WPF.Views"
-        mc:Ignorable="d" ShowMaxRestoreButton="False" AllowsTransparency="True" ShowIconOnTitleBar="True" IconBitmapScalingMode="HighQuality"
+        xmlns:views="clr-namespace:JJETS.Pos.UI.WPF.Views" Closing="ClosingVerify"
+        mc:Ignorable="d" ShowMaxRestoreButton="False" ShowIconOnTitleBar="True" IconBitmapScalingMode="Fant" IconEdgeMode="Aliased"
         ResizeMode="CanResizeWithGrip" Icon="C:\Users\Juzel Bernardo\Desktop\jjetslogo.png" Name="Main"
         WindowState="Maximized" WindowTransitionsEnabled="True" d:DesignHeight="1024" d:DesignWidth="1280">
        
     <mah:MetroWindow.RightWindowCommands>
         <mah:WindowCommands>
-            <Button Click="ButtonBase_OnClick" > My Account </Button>
+            <Button Click="RightWindowClick"> Admin Tools </Button>
+            <Button Click="RightWindowClick"> My Account </Button>
+            <Button Click="RightWindowClick"> Log Out </Button>
         </mah:WindowCommands>
     </mah:MetroWindow.RightWindowCommands>
     <mah:MetroWindow.Flyouts>
         <mah:FlyoutsControl>
             <mah:Flyout Name="Profile" Header="User Profile" IsPinned="True" Width="Auto" Height="Auto">
-                <views:User/>
+                <views:User x:Name="UserFlyout"/>
             </mah:Flyout>
             <mah:Flyout Name="Store" Header="Store" IsPinned="True" Position="Right" Width="Auto" Height="Auto">
-                <views:Store/>
+                <views:Store x:Name="StoreFlyout"/>
             </mah:Flyout>
-            <mah:Flyout Name="Items" Header="Items" IsPinned="True" Position="Right" Width="{Binding ElementName=Main, Path=ActualWidth}" Height="{Binding ElementName=Main, Path=ActualHeight}">
-                <views:Items/>
+            <mah:Flyout Name="Items" Header="Items" IsPinned="True" Position="Right" Width="600">
+                <views:Items x:Name="ItemsFlyout"/>
             </mah:Flyout>
             <mah:Flyout Name="ItemControl" Header="Item" IsPinned="True" Position="Right" Width="Auto" Height="Auto">
-                <views:ItemControl/>
+                <views:ItemControl x:Name="ItemControlFlyout"/>
             </mah:Flyout>
         </mah:FlyoutsControl>
     </mah:MetroWindow.Flyouts>

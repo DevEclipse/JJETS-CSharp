@@ -12,10 +12,10 @@ namespace JJETS.Pos.Models
 
         public double RetailPrice { get; set; } = 0;
 
-
         public int? SupplierId { get; set; }
         public int? CategoryId { get; set; }
 
+        public int? TimesSold { get; set; }
 
         public virtual Category Category { get; set; }
         public virtual Supplier Supplier { get; set; }

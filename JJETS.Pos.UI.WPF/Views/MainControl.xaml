@@ -14,82 +14,108 @@
                 <Setter Property="Width" Value="Auto"/>
                 <Setter Property="Margin" Value="10"/>
                 <Setter Property="FontSize" Value="30"/>
-                <Setter Property="TitleFontSize" Value="25"/> 
+                <Setter Property="TitleFontSize" Value="25"/>
                 <Setter Property="VerticalTitleAlignment" Value="Top"/>
+            </Style>
+            <Style TargetType="{x:Type local:CircleImage}">
+                <Setter Property="Height" Value="150"/>
+                <Setter Property="Width" Value="150"/>
+                <Setter Property="Margin" Value="10"></Setter>
             </Style>
         </Grid.Resources>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Hidden" Grid.ColumnSpan="4">
-            <StackPanel  Orientation="Horizontal">
-                <StackPanel.Resources>
-                    <Style TargetType="{x:Type mah:Tile}">
-                        <Setter Property="Height" Value="Auto"/>
-                        <Setter Property="Width" Value="300"/>
-                        <Setter Property="Margin" Value="10"/>
-                        <Setter Property="FontSize" Value="30"/>
-                        <Setter Property="TitleFontSize" Value="25"/>
-                        <Setter Property="VerticalTitleAlignment" Value="Top"/>
-                    </Style>
-                </StackPanel.Resources>
-                <mah:Tile Title="Items" Click="Tile_Click"/>
-                <mah:Tile Title="Stores" Click="Tile_Click"/>
-                <mah:Tile Title="Categories"/>
-                <mah:Tile Title="Suppliers"/>
-                <mah:Tile Title="Users Online"/>
-                <mah:Tile Title="Notifications"/>
-            </StackPanel>
-        </ScrollViewer>
-  
-        
-        <mah:FlipView UpTransition="LeftReplace"  MouseHoverBorderEnabled="False" CircularNavigation="True" Grid.Row="1" Grid.ColumnSpan="2" Height="Auto" Width="Auto" IsBannerEnabled="False">
+
+        <mah:FlipView  MouseHoverBorderEnabled="False" CircularNavigation="True" Height="Auto" Width="Auto" IsBannerEnabled="False">
             <mah:FlipView.Items>
-                <mah:Tile Title="Top Item">
+                <mah:Tile Title="Random Item">
                     <StackPanel>
-                    <local:CircleImage Width="400" Height="400" CircleSourceImage="http://www.llbean.com/shop/retailStores/media/images/140205_freeport-campus.jpg"/>
-                        <Label Content="Tae"/>
+                        <local:CircleImage CircleSourceImage="http://www.llbean.com/shop/retailStores/media/images/140205_freeport-campus.jpg"/>
+                        <Label Content="Teddy"/>
                     </StackPanel>
                 </mah:Tile>
-                <mah:Tile Title="Top Store">
+            </mah:FlipView.Items>
+        </mah:FlipView>
+        <mah:FlipView  Grid.Column="1" MouseHoverBorderEnabled="False" CircularNavigation="True" Height="Auto" Width="Auto" IsBannerEnabled="False">
+            <mah:FlipView.Items>
+                <mah:Tile Title="Random Store">
                     <StackPanel>
-                        <local:CircleImage Width="400" Height="400" CircleSourceImage="http://www.llbean.com/shop/retailStores/media/images/140205_freeport-campus.jpg"/>
-                        <Label Content="Tae"/>
-                    </StackPanel>
-                </mah:Tile>
-                <mah:Tile Title="Top Customer">
-                    <StackPanel>
-                        <local:CircleImage Width="400" Height="400" CircleSourceImage="http://www.llbean.com/shop/retailStores/media/images/140205_freeport-campus.jpg"/>
-                        <Label Content="Tae"/>
-                    </StackPanel>
-                </mah:Tile>
-                <mah:Tile Title="Top Manager">
-                    <StackPanel>
-                        <local:CircleImage Width="400" Height="400" CircleSourceImage="http://www.llbean.com/shop/retailStores/media/images/140205_freeport-campus.jpg"/>
-                        <Label Content="Tae"/>
+                        <local:CircleImage CircleSourceImage="http://www.llbean.com/shop/retailStores/media/images/140205_freeport-campus.jpg"/>
+                        <Label Content="Teddy"/>
                     </StackPanel>
                 </mah:Tile>
             </mah:FlipView.Items>
         </mah:FlipView>
 
-        <mah:FlipView Name="NewFlipView" MouseHoverBorderEnabled="False" CircularNavigation="True" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Height="Auto" Width="Auto" IsBannerEnabled="False">
+        <mah:FlipView  Grid.Column="2" MouseHoverBorderEnabled="False" CircularNavigation="True" Height="Auto" Width="Auto" IsBannerEnabled="False">
+            <mah:FlipView.Items>
+                <mah:Tile Title="Random Category">
+                    <StackPanel>
+                        <local:CircleImage CircleSourceImage="http://www.llbean.com/shop/retailStores/media/images/140205_freeport-campus.jpg"/>
+                        <Label Content="Teddy"/>
+                    </StackPanel>
+                </mah:Tile>
+            </mah:FlipView.Items>
+        </mah:FlipView>
+
+        <mah:FlipView  Grid.Column="3" MouseHoverBorderEnabled="False" CircularNavigation="True" Height="Auto" Width="Auto" IsBannerEnabled="False">
+            <mah:FlipView.Items>
+                <mah:Tile Title="Random Supplier">
+                    <StackPanel>
+                        <local:CircleImage CircleSourceImage="http://www.llbean.com/shop/retailStores/media/images/140205_freeport-campus.jpg"/>
+                        <Label Content="Teddy"/>
+                    </StackPanel>
+                </mah:Tile>
+            </mah:FlipView.Items>
+        </mah:FlipView>
+        <mah:FlipView  MouseHoverBorderEnabled="False" CircularNavigation="True" Grid.Row="1" Height="Auto" Width="Auto" IsBannerEnabled="False" Grid.ColumnSpan="2">
+            <mah:FlipView.Items>
+                <mah:Tile Title="Top Item">
+                    <StackPanel>
+                        <local:CircleImage CircleSourceImage="http://www.llbean.com/shop/retailStores/media/images/140205_freeport-campus.jpg"/>
+                        <Label Content="Teddy"/>
+                    </StackPanel>
+                </mah:Tile>
+                <mah:Tile Title="Top Store">
+                    <StackPanel>
+                        <local:CircleImage CircleSourceImage="http://www.llbean.com/shop/retailStores/media/images/140205_freeport-campus.jpg"/>
+                        <Label Content="Bean Store"/>
+                    </StackPanel>
+                </mah:Tile>
+                <mah:Tile Title="Top Customer">
+                    <StackPanel>
+                        <local:CircleImage CircleSourceImage="http://www.llbean.com/shop/retailStores/media/images/140205_freeport-campus.jpg"/>
+                        <Label Content="Barney The Dinosaur"/>
+                    </StackPanel>
+                </mah:Tile>
+                <mah:Tile Title="Top Manager">
+                    <StackPanel>
+                        <local:CircleImage CircleSourceImage="http://www.llbean.com/shop/retailStores/media/images/140205_freeport-campus.jpg"/>
+                        <Label Content="Mr. Bean"/>
+                    </StackPanel>
+                </mah:Tile>
+            </mah:FlipView.Items>
+        </mah:FlipView>
+
+        <mah:FlipView Name="NewFlipView" MouseHoverBorderEnabled="False" CircularNavigation="True" Grid.Row="1" Grid.Column="2"  Height="Auto" Width="Auto" IsBannerEnabled="False" Grid.ColumnSpan="2">
             <mah:Tile Name="NewItem" Title="New Item">
                 <StackPanel>
-                    <local:CircleImage Width="400" Height="400" CircleSourceImage="http://www.llbean.com/shop/retailStores/media/images/140205_freeport-campus.jpg"/>
+                    <local:CircleImage CircleSourceImage="http://www.llbean.com/shop/retailStores/media/images/140205_freeport-campus.jpg"/>
                     <Label Content="Tae"/>
                 </StackPanel>
             </mah:Tile>
             <mah:Tile Name="NewStore" Title="New Store">
                 <StackPanel>
-                    <local:CircleImage Width="400" Height="400" CircleSourceImage="http://www.llbean.com/shop/retailStores/media/images/140205_freeport-campus.jpg"/>
-                    <Label Content="Tae"/>
+                    <local:CircleImage CircleSourceImage="http://www.llbean.com/shop/retailStores/media/images/140205_freeport-campus.jpg"/>
+                    <Label Content="Bean"/>
                 </StackPanel>
             </mah:Tile>
         </mah:FlipView>

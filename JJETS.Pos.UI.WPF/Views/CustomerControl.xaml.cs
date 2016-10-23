@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,29 +18,24 @@ using MahApps.Metro.Controls;
 namespace JJETS.Pos.UI.WPF.Views
 {
     /// <summary>
-    /// Interaction logic for MainControl.xaml
+    /// Interaction logic for ManagerControl.xaml
     /// </summary>
-    public partial class MainControl : UserControl
+    public partial class CustomerControl : UserControl
     {
-        public MainControl()
+        public CustomerControl()
         {
             InitializeComponent();
         }
 
-        private void Tile_Click(object sender, RoutedEventArgs e)
+        private void Tile_Click(object sender, RoutedEventArgs e)   
         {
-            var tile = (Tile) e.Source;
+            var tile = (Tile)e.Source;
 
             switch (tile.Title)
             {
-                case "Stores":
-                    App.Window.Store.IsOpen = true;
-                    break;
-                case "Items":
-                    App.Window.ItemsFlyout.ItemsListView.ItemsSource = App.Context.Items.Local;
-                    App.Window.Items.IsOpen = true;
-                    break;
+
             }
         }
+
     }
 }

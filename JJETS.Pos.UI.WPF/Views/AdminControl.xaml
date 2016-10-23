@@ -1,0 +1,100 @@
+﻿<UserControl x:Class="JJETS.Pos.UI.WPF.Views.AdminControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JJETS.Pos.UI.WPF.Views"
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="720" d:DesignWidth="1280">
+    <Grid>
+        <mah:MetroAnimatedTabControl TabStripPlacement="Left" TabStripMargin="15">
+            <mah:MetroAnimatedTabControl.Items>
+                <mah:MetroTabItem Header="Users">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <TextBox mah:TextBoxHelper.Watermark="Search" mah:TextBoxHelper.ClearTextButton="True" Width="400" Padding="10"/>
+                        <DataGrid Grid.Row="1"/>
+                    </Grid>
+                </mah:MetroTabItem>
+                <mah:MetroTabItem Header="Stores">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <TextBox mah:TextBoxHelper.Watermark="Search" mah:TextBoxHelper.ClearTextButton="True" Width="400" Padding="10"/>
+                        <DataGrid Grid.Row="1"/>
+                    </Grid>
+                </mah:MetroTabItem>
+                <mah:MetroTabItem Header="Items">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <TextBox mah:TextBoxHelper.Watermark="Search" mah:TextBoxHelper.ClearTextButton="True" Width="400" Padding="10"/>
+                        <DataGrid Grid.Row="1"/>
+                    </Grid>
+                </mah:MetroTabItem>
+                <mah:MetroTabItem Header="Categories">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <TextBox mah:TextBoxHelper.Watermark="Search" mah:TextBoxHelper.ClearTextButton="True" Width="400" Padding="10"/>
+                        <DataGrid Grid.Row="1"/>
+                    </Grid>
+                </mah:MetroTabItem>
+                <mah:MetroTabItem Header="Suppliers">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <TextBox mah:TextBoxHelper.Watermark="Search" mah:TextBoxHelper.ClearTextButton="True" Width="400" Padding="10"/>
+                        <DataGrid Grid.Row="1"/>
+                    </Grid>
+                </mah:MetroTabItem>
+                <mah:MetroTabItem Header="Locations">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <TextBox mah:TextBoxHelper.Watermark="Search" mah:TextBoxHelper.ClearTextButton="True" Width="400" Padding="10"/>
+                        <DataGrid Grid.Row="1"/>
+                    </Grid>
+                </mah:MetroTabItem>
+                <mah:MetroTabItem Header="Notifications">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <TextBox mah:TextBoxHelper.Watermark="Search" mah:TextBoxHelper.ClearTextButton="True" Width="400" Padding="10"/>
+                        <DataGrid Grid.Row="1"/>
+                    </Grid>
+                </mah:MetroTabItem>
+                <mah:MetroTabItem Header="Reports">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <TextBox mah:TextBoxHelper.Watermark="Search" mah:TextBoxHelper.ClearTextButton="True" Width="400" Padding="10"/>
+                        <DataGrid Grid.Row="1"/>
+                    </Grid>
+                </mah:MetroTabItem>
+                <mah:MetroTabItem Header="Settings">
+                    <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50">Settings</Label>
+                </mah:MetroTabItem>
+
+            </mah:MetroAnimatedTabControl.Items>
+        </mah:MetroAnimatedTabControl>
+    </Grid>
+</UserControl>

@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:JJETS.Pos.UI.WPF.Views"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:models="clr-namespace:JJETS.Pos.Models;assembly=JJETS.Pos.Models"
              mc:Ignorable="d" 
@@ -14,25 +15,31 @@
             <RowDefinition />
         </Grid.RowDefinitions >
         <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" >
+            <Button Width="200" Click="AddItemClick" Margin="20"> Add Item </Button>
             <TextBox mah:TextBoxHelper.Watermark="Search" mah:TextBoxHelper.ClearTextButton="True" Margin="20" Width="150" Padding="5" FontSize="15"/>
-            <ComboBox mah:TextBoxHelper.Watermark="By" Margin="0,20,20,20" Width="150" Padding="5" FontSize="15"/>
+            <ComboBox mah:TextBoxHelper.Watermark="By" Margin="20" Width="150" Padding="5" FontSize="15"/>
         </StackPanel>
-        <ListView Name="ItemsListView"  Grid.Row="1" >
-            <ListView.ItemsPanel>
+        <ListBox Name="ItemsListView"  Grid.Row="1" >
+            <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel></WrapPanel>
                 </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
-            <ListView.ItemTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
                 <DataTemplate DataType="models:Item">
-                    <mah:Tile Width="100" Height="100" Title="{Binding Name}" Count="{Binding CostPrice}" Click="ItemTileClick">
+                    <mah:Tile x:Name="ItemTile" Width="100" Height="100" Title="{Binding Name}" Count="{Binding CostPrice}" Click="ItemTileClick">
                         <mah:Tile.Background>
                             <ImageBrush ImageSource="{Binding Image}"/>
                         </mah:Tile.Background>
                     </mah:Tile>
+                    <DataTemplate.Triggers>
+                        <DataTrigger Binding="{Binding Image}" Value="{x:Null}">
+                            <Setter TargetName="ItemTile" Property="Background" Value="{StaticResource AccentBaseColorBrush}"/>
+                        </DataTrigger>
+                    </DataTemplate.Triggers>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </UserControl>
 

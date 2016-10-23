@@ -8,29 +8,31 @@
              xmlns:icons="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="400">
-    <Grid>
-        <Grid.Resources>
-            <Style TargetType="{x:Type mah:Tile}">
-                <Setter Property="Height" Value="Auto"/>
-                <Setter Property="Width" Value="Auto"/>
-                <Setter Property="Margin" Value="10"/>
-            </Style>
-        </Grid.Resources>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <mah:Tile Title="Stores" Grid.ColumnSpan="2" Click="Tile_Click" />
-        <mah:Tile Title="Items" Grid.Row="1" Grid.Column="1"/>
-        <mah:Tile Title="Reports" Grid.Row="2" Grid.Column="1">
-            <icons:PackIconEntypo Kind="Reply"/>
-        </mah:Tile>
-        <mah:Tile Title="Transactions" Grid.Row="1" Grid.RowSpan="2"/>
-    </Grid>
+    <GroupBox Header="Manager Control">
+        <Grid>
+            <Grid.Resources>
+                <Style TargetType="{x:Type mah:Tile}">
+                    <Setter Property="Height" Value="Auto"/>
+                    <Setter Property="Width" Value="Auto"/>
+                    <Setter Property="Margin" Value="10"/>
+                </Style>
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <mah:Tile Title="Your Stores" Grid.ColumnSpan="2" Click="Tile_Click" />
+            <mah:Tile Title="Your Items" Grid.Row="1" Grid.Column="1"/>
+            <mah:Tile Title="Stores Reports" Grid.Row="2" Grid.Column="1">
+                <icons:PackIconEntypo Kind="Reply"/>
+            </mah:Tile>
+            <mah:Tile Title="Stores Transactions" Grid.Row="1" Grid.RowSpan="2"/>
+        </Grid>
+    </GroupBox>
 </UserControl>
  
