@@ -11,7 +11,6 @@ namespace JJETS.Pos.Models
     {
         public double? PointsEarned { get; set; } = 0;
 
-
         public virtual ObservableCollection<Transaction> Transactions { get; set; } = new ObservableCollection<Transaction>();
     }
 }

@@ -6,12 +6,8 @@ namespace JJETS.Pos.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public sealed partial class Store : Base
+    public partial class Store : Base
     {
-
-        public int? ManagerId { get; set; }
-
-        public int? LocationId { get; set; }
 
         public double? DiscountRate { get; set; } = 0.01;
 
@@ -25,11 +21,10 @@ namespace JJETS.Pos.Models
 
         public Location Location { get; set; }
 
-        public ObservableCollection<Stock> Stocks { get; set; } = new ObservableCollection<Stock>();
+        public virtual ObservableCollection<Stock> Stocks { get; set; } = new ObservableCollection<Stock>();
 
-        public ObservableCollection<Employee> Employees { get; set; } = new ObservableCollection<Employee>();
+        public virtual ObservableCollection<Employee> Employees { get; set; } = new ObservableCollection<Employee>();
 
-        public ObservableCollection<Transaction> Transactions { get; set; } = new ObservableCollection<Transaction>();
-
+        public virtual ObservableCollection<Transaction> Transactions { get; set; } = new ObservableCollection<Transaction>();
     }
 }

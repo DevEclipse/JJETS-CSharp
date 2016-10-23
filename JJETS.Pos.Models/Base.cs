@@ -25,13 +25,9 @@ namespace JJETS.Pos.Models
 
         public byte[] Image { get; set; }
 
-        public int? CreatedById { get; set; }
-
         public User CreatedBy { get; set; }
 
         public string Description { get; set; }
-
-        public virtual ObservableCollection<User> Subscribers { get; set; } = new ObservableCollection<User>();
 
     }
 

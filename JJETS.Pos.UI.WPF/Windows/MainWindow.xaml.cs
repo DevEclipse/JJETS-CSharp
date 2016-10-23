@@ -37,7 +37,7 @@ namespace JJETS.Pos.UI.WPF.Windows
             
             switch(temp.Content.ToString()) {
                 case "My Account":
-                    Profile.IsOpen = true;
+                    User.IsOpen = true;
                     break;
                 case "Log Out":
 
@@ -54,6 +54,9 @@ namespace JJETS.Pos.UI.WPF.Windows
                     {
                         MainContentControl.Content = new Credentials { Margin = new Thickness(300) };
                     }
+                    break;
+                case "Admin Tools":
+                    MainContentControl.Content = new AdminControl();
                     break;
             }
         }

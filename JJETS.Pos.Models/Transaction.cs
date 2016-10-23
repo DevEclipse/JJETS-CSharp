@@ -18,12 +18,6 @@ namespace JJETS.Pos.Models
 
         public double? Discount { get; set; } = 0;
 
-        public int? StoreId { get; set; }
-
-
-        public int? EmployeeId { get; set; }
-
-        public int? CustomerId { get; set; }
 
         public StatusTransaction Status { get; set; } = StatusTransaction.New;
 

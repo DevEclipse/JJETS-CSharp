@@ -33,7 +33,9 @@ namespace JJETS.Pos.UI.WPF.Views
 
             switch (tile.Title)
             {
-
+                case "Your Stores":
+                    App.Window.Stores.IsOpen = true;
+                    break;
             }
         }
 

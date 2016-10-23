@@ -6,12 +6,16 @@
              xmlns:local="clr-namespace:JJETS.Pos.UI.WPF.Views"
              xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="300">
+             d:DesignHeight="500" d:DesignWidth="300">
     <GroupBox Header="Basic Info">
     <StackPanel>
         <local:CircleImage x:Name="ItemImage" Width="150" Height="150" Margin="20" CircleSourceImage="{Binding Image}"></local:CircleImage>
         <TextBox x:Name="NameText" Padding="10"  Margin="10" controls:TextBoxHelper.Watermark="Enter Name" Width="250" Text="{Binding Name}"/>
         <TextBox x:Name="DescriptionText" Padding="10"  Margin="10" controls:TextBoxHelper.Watermark="Enter Description" Width="250" Height="Auto" Text="{Binding Description}" TextWrapping="WrapWithOverflow"/>
+            <Grid Margin="10">
+                <Label x:Name="CreatedDate" HorizontalAlignment="Left">Created Date: Now</Label>
+                <Label x:Name="CreatedBy" HorizontalAlignment="Right">Created By : You</Label>
+            </Grid>
     </StackPanel>
     </GroupBox>
 </UserControl>

@@ -27,21 +27,5 @@ namespace JJETS.Pos.UI.WPF.Views
         {
             InitializeComponent();
         }
-
-        private void Tile_Click(object sender, RoutedEventArgs e)
-        {
-            var tile = (Tile) e.Source;
-
-            switch (tile.Title)
-            {
-                case "Stores":
-                    App.Window.Store.IsOpen = true;
-                    break;
-                case "Items":
-                    App.Window.ItemsFlyout.ItemsListView.ItemsSource = App.Context.Items.Local;
-                    App.Window.Items.IsOpen = true;
-                    break;
-            }
-        }
     }
 }

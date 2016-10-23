@@ -27,7 +27,7 @@
             </GroupItem>
         </GroupBox>
         <ContentControl Grid.Column="1" Grid.Row="1" x:Name="UserControlContent">
-            <local:EmployeeControl></local:EmployeeControl>
+
         </ContentControl>
 
     </Grid>

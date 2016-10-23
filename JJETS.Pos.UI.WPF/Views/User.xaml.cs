@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using JJETS.Pos.Logic;
 
 namespace JJETS.Pos.UI.WPF.Views
 {
@@ -23,8 +24,24 @@ namespace JJETS.Pos.UI.WPF.Views
         public User()
         {
             InitializeComponent();
+
         }
 
+        public void SetControl()
+        {
+            switch (App.User?.GetUserType())
+            {
+                case "Manager":
+                    UserControlContent.Content = new ManagerControl();
+                    break;
+                case "Employee":
+                    UserControlContent.Content = new EmployeeControl();
+                    break;
+                case "Customer":
+                    UserControlContent.Content = new CustomerControl();
+                    break;
+            }
+        }
         private void Tile_Click(object sender, RoutedEventArgs e)
         {
 

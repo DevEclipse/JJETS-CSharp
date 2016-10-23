@@ -48,13 +48,14 @@ namespace JJETS.Pos.Logic
         }
 
 
-        public static Stock CreateStock(this Store store, Item item, string name, int quantity, Category category = null,
+        public static Stock CreateStock(this Store store, Item item, string name, int quantity,double addedPrice, Category category = null,
             Supplier supplier = null)
         {
             return new Stock
             {
                 Name = name,
                 Quantity = quantity,
+                AddedPrice = addedPrice,
                 Item = item,
                 Store = store,
                 CreatedBy = store.Manager
@@ -73,7 +74,7 @@ namespace JJETS.Pos.Logic
                 Status = statusTransaction,
                 CreatedBy = employee
             };
-            temp.Total = temp.TransactionItems.Sum(t => t.Stock.Item.RetailPrice);
+            temp.Total = temp.TransactionItems.Sum(t => (t.Stock.Item.CostPrice + t.Stock.AddedPrice)*t.Quantity);
             temp.Tax = temp.Total*temp.Store.TaxRate;
             temp.Discount = (temp.Total*temp.Store.DiscountRate) + discount;
             temp.Change = temp.Amount - (temp.Total - temp.Discount);
@@ -92,7 +93,7 @@ namespace JJETS.Pos.Logic
                 Status = StatusTransaction.Pending,
                 CreatedBy = customer
             };
-            temp.Total = temp.TransactionItems.Sum(t => t.Stock.Item.RetailPrice);
+            temp.Total = temp.TransactionItems.Sum(t => (t.Stock.Item.CostPrice + t.Stock.AddedPrice) * t.Quantity);
             temp.Tax = temp.Total*temp.Store.TaxRate;
             temp.Discount = (temp.Total*temp.Store.DiscountRate);
             temp.Change = temp.Amount - (temp.Total - temp.Discount);
@@ -104,7 +105,7 @@ namespace JJETS.Pos.Logic
             return new TransactionItem {Stock = stock, Quantity = quantity, Transaction = transaction};
         }
 
-        public static Item CreateItem(this User user,string name, double costPrice, double retailPrice, Category category,
+        public static Item CreateItem(this User user,string name, double costPrice, Category category,
             Supplier supplier, byte[] image = null)
         {
             return
@@ -112,7 +113,6 @@ namespace JJETS.Pos.Logic
                 {
                     Name = name,
                     CostPrice = costPrice,
-                    RetailPrice = retailPrice,
                     Supplier = supplier,
                     Category = category,
                     Image = image
@@ -184,6 +184,10 @@ namespace JJETS.Pos.Logic
 
         #region Logical Methods
 
+        public static string GetUserType<T>(this T obj) where T : User
+        {
+            return ObjectContext.GetObjectType(obj.GetType()).Name;
+        }
         public static string LoginCheck(string email, string password, string role)
         {
             if (!ValidateEmail(email))
@@ -198,10 +202,10 @@ namespace JJETS.Pos.Logic
                 {
                     return "Welcome Admin";
                 }
-                if (ObjectContext.GetObjectType(tempUser.GetType()).Name != role)
+                if (tempUser?.GetUserType() != role)
                 {
                     return
-                        $"Account: {email} role is {ObjectContext.GetObjectType(tempUser.GetType()).Name} you must select {role} in the Role Selection Window to login";
+                        $"Account: {email} role is {tempUser?.GetUserType()} you must select {role} in the Role Selection Window to login";
                 }
                 if (tempUser.PenaltyTime < DateTime.Now || tempUser is Admin)
                 {

@@ -37,8 +37,10 @@ namespace JJETS.Pos.Models
         [StringLength(5)]
         public string VerificationCode { get; set; }
         
-        public int? ContactNumber { get; set; } 
+        public int? ContactNumber { get; set; }
 
-        public ObservableCollection<Notification> Notifications = new ObservableCollection<Notification>();
+        public virtual ObservableCollection<User> Subscribers { get; set; } = new ObservableCollection<User>();
+        public virtual ObservableCollection<Notification> Notifications { get; set; } = new ObservableCollection<Notification>();
+
     }
 }

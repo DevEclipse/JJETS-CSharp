@@ -18,7 +18,6 @@
                 <ComboBox x:Name="SuppliersBox" Padding="10"  Margin="10" mah:TextBoxHelper.Watermark="Select Supplier" Width="250" SelectedValue="{Binding Supplier}"/>
 
                 <mah:NumericUpDown  x:Name="CostPriceText" Padding="10"  Margin="10" mah:TextBoxHelper.Watermark="Enter Cost Price" Width="250" Value="{Binding CostPrice}"/>
-                    <mah:NumericUpDown x:Name="RetailPriceText" Padding="10"  Margin="10" mah:TextBoxHelper.Watermark="Enter Retail Price" Width="250" Value="{Binding RetailPrice}"/>
 
                 <Button Padding="10" Click="AddItem">Add</Button>
                 <Button Padding="10" Click="UpdateItem">Save</Button>

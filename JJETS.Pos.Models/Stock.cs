@@ -8,8 +8,7 @@ namespace JJETS.Pos.Models
 
     public partial class Stock : Base
     {
-        public int? ItemId { get; set; }
-        public int? StoreId { get; set; }
+        public double AddedPrice { get; set; } = 0;
 
         public int Quantity { get; set; } = 0;
 

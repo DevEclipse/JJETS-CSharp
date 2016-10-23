@@ -62,9 +62,12 @@ namespace JJETS.Pos.UI.WPF.Views
 
                     var loginResultString = POS.LoginCheck(loginResult.Username, loginResult.Password,tile.Title);
 
-                    if(loginResultString == "Login Successful" || loginResultString == "Welcome Admin") { 
-
+                    if(loginResultString == "Login Successful" || loginResultString == "Welcome Admin")
+                    {
+          
+                        App.User = POS.GetUser<Models.User>(loginResult.Username);
                         App.Window.MainContentControl.Content = new MainControl { Margin = new Thickness(100)};
+                        App.Window.UserFlyout.SetControl();
                     }
                     await  App.Window.ShowMessageAsync("Login", loginResultString);
                     break;

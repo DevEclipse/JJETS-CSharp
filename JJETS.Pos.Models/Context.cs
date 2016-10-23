@@ -18,6 +18,7 @@ namespace JJETS.Pos.Models
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<Context, Configuration>("name=Offline"));
             Database.CreateIfNotExists();
+            Configuration.ValidateOnSaveEnabled = false;
         }
 
         public Context(string conString) : base(conString)

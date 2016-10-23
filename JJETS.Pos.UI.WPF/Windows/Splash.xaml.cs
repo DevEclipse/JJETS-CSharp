@@ -59,7 +59,8 @@ namespace JJETS.Pos.UI.WPF.Windows
                     await App.Context.Locations.LoadAsync();
                     await App.Context.Stores.LoadAsync();
                     await App.Context.TransactionItems.LoadAsync();
-                    await App.Context.Transactions.LoadAsync();;
+                    await App.Context.Transactions.LoadAsync();
+                    await App.Context.Notifications.LoadAsync(); ;
                 });
 
                 await Task.Delay(100);

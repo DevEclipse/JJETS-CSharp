@@ -8,14 +8,10 @@ namespace JJETS.Pos.Models
 
     public partial class TransactionItem : Base
     {
-        public int? StockId { get; set; }
-
-        public int? TransactionId { get; set; }
 
         public int Quantity { get; set; } = 1;
 
         public virtual Stock Stock { get; set; }
-
 
         public virtual Transaction Transaction { get; set; }
     }

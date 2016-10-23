@@ -19,17 +19,38 @@
     </mah:MetroWindow.RightWindowCommands>
     <mah:MetroWindow.Flyouts>
         <mah:FlyoutsControl>
-            <mah:Flyout Name="Profile" Header="User Profile" IsPinned="True" Width="Auto" Height="Auto">
+            <mah:Flyout Name="User" Header="User Profile" IsPinned="True" Width="Auto" Height="Auto">
                 <views:User x:Name="UserFlyout"/>
+            </mah:Flyout>
+            <mah:Flyout Name="PointOfSale" Header="Point of Sale" IsPinned="True" Width="Auto" Height="Auto">
+                <views:PointOfSale x:Name="PointOfSaleFlyout"/>
             </mah:Flyout>
             <mah:Flyout Name="Store" Header="Store" IsPinned="True" Position="Right" Width="Auto" Height="Auto">
                 <views:Store x:Name="StoreFlyout"/>
             </mah:Flyout>
+            <mah:Flyout Name="Stores" Header="Stores" IsPinned="True" Position="Right" Width="Auto" Height="Auto">
+                <views:Stores x:Name="StoresFlyout"/>
+            </mah:Flyout>
+            <mah:Flyout Name="StoreControl" Header="StoreControl" IsPinned="True" Position="Right" Width="Auto" Height="Auto">
+                <views:StoreControl x:Name="StoreControlFlyout"/>
+            </mah:Flyout>
+            <mah:Flyout Name="Item" Header="Item" IsPinned="True" Position="Right" Width="600">
+                <views:Item x:Name="ItemFlyout"/>
+            </mah:Flyout>
             <mah:Flyout Name="Items" Header="Items" IsPinned="True" Position="Right" Width="600">
                 <views:Items x:Name="ItemsFlyout"/>
             </mah:Flyout>
-            <mah:Flyout Name="ItemControl" Header="Item" IsPinned="True" Position="Right" Width="Auto" Height="Auto">
+            <mah:Flyout Name="ItemControl" Header="ItemControl" IsPinned="True" Position="Right" Width="Auto" Height="Auto">
                 <views:ItemControl x:Name="ItemControlFlyout"/>
+            </mah:Flyout>
+            <mah:Flyout Name="Stock" Header="Stock" IsPinned="True" Position="Right" Width="600">
+                <views:Stock x:Name="StockFlyout"/>
+            </mah:Flyout>
+            <mah:Flyout Name="Stocks" Header="Stocks" IsPinned="True" Position="Right" Width="600">
+                <views:Stocks x:Name="StocksFlyout"/>
+            </mah:Flyout>
+            <mah:Flyout Name="StockControl" Header="StockControl" IsPinned="True" Position="Right" Width="Auto" Height="Auto">
+                <views:StockControl x:Name="StockControlFlyout"/>
             </mah:Flyout>
         </mah:FlyoutsControl>
     </mah:MetroWindow.Flyouts>

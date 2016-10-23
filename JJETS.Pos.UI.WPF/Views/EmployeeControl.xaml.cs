@@ -33,7 +33,9 @@ namespace JJETS.Pos.UI.WPF.Views
 
             switch (tile.Title)
             {
-
+                case "Store Register (POS)":
+                    App.Window.PointOfSale.IsOpen = true;
+                    break;
             }
         }
 
